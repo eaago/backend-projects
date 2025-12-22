@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "description": "Feed the cats",
+    "status": "todo",
+    "createdAt": "2025-12-21 23:50:50",
+    "updatedAt": "2025-12-21 23:50:50"
+  },
+  {
+    "id": 2,
+    "description": "Buy cat toys",
+    "status": "todo",
+    "createdAt": "2025-12-21 23:50:56",
+    "updatedAt": "2025-12-21 23:50:56"
+  },
+  {
+    "id": 3,
+    "description": "Play with the cats",
+    "status": "todo",
+    "createdAt": "2025-12-21 23:51:42",
+    "updatedAt": "2025-12-21 23:51:42"
+  },
+  {
+    "id": 4,
+    "description": "Pet the very cute bunnies",
+    "status": "todo",
+    "createdAt": "2025-12-22 10:33:27",
+    "updatedAt": "2025-12-22 11:21:46"
+  }
+]
