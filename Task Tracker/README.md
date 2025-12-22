@@ -2,7 +2,7 @@
 
 A simple, terminal-based task tracker written in Python. Manage tasks with statuses (`todo`, `in-progress`, `done`), store them to a JSON file, and interact through a command-line interface.
 
-Project specs can be found in [Task Tracker CLI](https://roadmap.sh/projects/task-tracker).
+Project specs can be found in [Task Tracker CLI](https://roadmap.sh/projects/task-tracker). [Solution link](https://roadmap.sh/projects/task-tracker/solutions?u=685bd531692da1a94eaeb7af).
 
 
 ---
