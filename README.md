@@ -8,6 +8,7 @@ A collection of practice projects from [roadmap.sh](https://roadmap.sh/backend/p
 Projects Finished:
 
 * **[Task Tracker CLI](https://roadmap.sh/projects/task-tracker)** — A terminal-based task manager with JSON file storage
+* **[GitHub User Activity](https://roadmap.sh/projects/github-user-activity)** — Uses GitHub Events API to check recent user activity
 * (More projects will be added over time)
 
 ---
@@ -18,6 +19,9 @@ Each project lives in its own folder and includes its own README explaining usag
 
 ```text
 .
+├── GitHub User Activity CLI/
+│   ├── activity_tracker.py
+│   └── README.md
 ├── Task Tracker/
 │   ├── task_tracker_cli.py
 │   ├── task_list.json
