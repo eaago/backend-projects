@@ -33,38 +33,46 @@ while True:
         print(f"User {username}'s recent events: ")
         for event in events:
             if event["type"] == "CommitCommentEvent":
-                pass
+                print(f"Created a commit comment event to {event["repo"]["name"]}")
             elif event["type"] == "CreateEvent":
-                pass
+                print(f"Created a Git branch or tag at {event["repo"]["name"]}")
             elif event["type"] == "DeleteEvent":
-                pass
+                print(f"Deleted a Git branch or tag at {event["repo"]["name"]}")
             elif event["type"] == "DiscussionEvent":
-                pass
+                print(f"Created a discussion at {event["repo"]["name"]}")
             elif event["type"] == "ForkEvent":
-                pass
+                print(f"Forked the repository {event["repo"]["name"]}")
             elif event["type"] == "GollumEvent":
-                pass
+                print(f"Created or updated a wiki page at {event["repo"]["name"]}")
             elif event["type"] == "IssueCommentEvent":
-                pass
+                action = event["payload"]["action"].capitalize()
+                print(f"{action} an issue or pull request comment at {event["repo"]["name"]}")
             elif event["type"] == "IssuesEvent":
-                pass
+                action = event["payload"]["action"].capitalize()
+                print(f"{action} an issue at {event["repo"]["name"]}")
             elif event["type"] == "MemberEvent":
-                pass
+                action = event["payload"]["action"].capitalize()
+                print(f"{action} repository collaborators at {event["repo"]["name"]}")
             elif event["type"] == "PublicEvent":
-                pass
+                print(f"Private repository {event["repo"]["name"]} was made public")
             elif event["type"] == "PullRequestEvent":
-                pass
+                action = event["payload"]["action"].capitalize()
+                print(f"{action} pull request at {event["repo"]["name"]}")
             elif event["type"] == "PullRequestReviewEvent":
-                pass
+                action = event["payload"]["action"].capitalize()
+                print(f"{action} pull request review at {event["repo"]["name"]}")
             elif event["type"] == "PullRequestReviewCommentEvent":
-                pass
+                action = event["payload"]["action"].capitalize()
+                print(f"{action} pull request review comment at {event["repo"]["name"]}")
             elif event["type"] == "PushEvent":
-                pass
+                print(f"Pushed a commit to {event["repo"]["name"]}")
             elif event["type"] == "ReleaseEvent":
-                pass
+                action = event["payload"]["action"].capitalize()
+                print(f"{action} release at {event["repo"]["name"]}")
             elif event["type"] == "WatchEvent":
-                pass
+                print(f"Starred {event["repo"]["name"]}")
             else:
                 print("Event not identified.")
+        break
     else:
         message = "\nUser not found. Try again."
