@@ -2,7 +2,7 @@
 
 A basic GitHub user activity tracker written in Python. Retrieves the recent user activity using `requests` and looks through each event in the resulting JSON. Prints the appropriate output for each unique event.
 
-Project specs can be found in [GitHub User Activity](https://roadmap.sh/projects/github-user-activity). [Solution link]() to be updated once submitted.
+Project specs can be found in [GitHub User Activity](https://roadmap.sh/projects/github-user-activity). [Solution link](https://roadmap.sh/projects/github-user-activity/solutions?u=685bd531692da1a94eaeb7af).
 
 
 ---
