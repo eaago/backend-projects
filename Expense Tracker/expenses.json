@@ -16,9 +16,9 @@
   },
   {
     "id": 3,
-    "description": "Bunny food",
-    "amount": 400,
+    "description": "Cat food",
+    "amount": 450,
     "category": "Pet items",
-    "date": "2026-01-01"
+    "date": "2025-12-28"
   }
 ]

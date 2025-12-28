@@ -21,6 +21,14 @@ def retrieve_expenses():
 
     return expenses
 
+def delete_reorder(expenses):
+    if len(expenses) != 1:
+        for i, task in enumerate(expenses[1:]):
+            task["id"] = i + 1
+        return expenses
+    else:
+        return expenses
+
 def add_expense(expenses, args):
     new_expense = {
         "id": len(expenses),
@@ -56,6 +64,21 @@ def update_expense(expenses, args):
         return
     else:
         print(f"\nUpdated expense id {args.id}")
+        write_to_file(expenses)
+
+def delete_expense(expenses, args):
+    found = False
+    for i, item in enumerate(expenses[1:]):
+        if item["id"] == args.id:
+            found = True
+            expenses.pop(i + 1)
+            break
+    if found == False:
+        print("\nProvided expense id does not exist.")
+        return
+    else:
+        print(f"\nDeleted expense id {args.id}")
+        expenses = delete_reorder(expenses)
         write_to_file(expenses)
 
 def write_to_file(expenses):

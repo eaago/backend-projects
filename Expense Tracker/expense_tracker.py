@@ -17,7 +17,7 @@ if args.command == "add":
 elif args.command == "update":
     update_expense(expenses, args)
 elif args.command == "delete":
-    pass
+    delete_expense(expenses, args)
 elif args.command == "list":
     pass
 elif args.command == "summary":
