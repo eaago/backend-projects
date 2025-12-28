@@ -2,7 +2,7 @@
 
 A terminal-based expense tracking application written in Python. Track daily expenses, manage a monthly budget, view summaries, and export records through a structured command-line interface.
 
-Project specs can be found in [Expense Tracker CLI](https://roadmap.sh/projects/expense-tracker).
+Project specs can be found in [Expense Tracker CLI](https://roadmap.sh/projects/expense-tracker). [Solution Link](https://roadmap.sh/projects/expense-tracker/solutions?u=685bd531692da1a94eaeb7af)
 
 ---
 
