@@ -22,7 +22,6 @@ elif args.command == "list":
 elif args.command == "summary":
     summary_expense(expenses, args)
 elif args.command == "budget":
-    # print(f"You have updated your monthly budget from {budget} to {args.amount}")
-    pass
+    budget_update(expenses, args)
 else:
     print("An error has occured.\n")

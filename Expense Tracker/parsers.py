@@ -1,6 +1,6 @@
 import argparse
 import datetime
-from functions import valid_date
+from functions import valid_date, valid_date_ym
 
 def create_parsers():
     parser = argparse.ArgumentParser(prog="Expense Tracker")
@@ -14,7 +14,7 @@ def create_parsers():
     add_parser.add_argument("--amount", type=int, required=True)
     add_parser.add_argument("--category", required=False, default="General")
     time = datetime.datetime.now()
-    add_parser.add_argument("--date", type=valid_date, required=False, default=time.strftime("%Y-%m-%d"))                   # Used for testing. Defaults to current date.
+    add_parser.add_argument("--date", type=valid_date, required=False, default=time.strftime("%Y-%m-%d"))         # Used for testing different dates. Defaults to current date.
 
     # Update
 
@@ -38,7 +38,8 @@ def create_parsers():
     # Summary
 
     summary_parser = subparsers.add_parser("summary")
-    summary_parser.add_argument("--month", type=int, required=False)
+    summary_parser.add_argument("--yrmth", type=valid_date_ym)
+    summary_parser.add_argument("--category")
 
     # Budget
 
