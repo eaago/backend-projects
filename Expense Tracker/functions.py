@@ -2,7 +2,9 @@ import json
 import argparse
 import datetime
 import tabulate
+import csv
 from parsers import *
+from pathlib import Path
 
 def valid_date(date_str):
     try:
@@ -42,14 +44,15 @@ def add_expense(expenses, args):
         print("\nExpense amount cannot be negative.")
         return
     
-    total = 0
+    total = args.amount
     for item in expenses[1:]:
         item_date = item["date"].split("-")
         args_date = args.date.split("-")
         if args_date[0] == item_date[0] and args_date[1] == item_date[1]:
             total = total + item["amount"]
 
-
+    if total > expenses[0]:
+        print(f"\nWarning: You are exceeding the P{expenses[0]} that you have set. You now have a total of P{total} in expenses in the year {args_date[0]} month {args_date[1]}")
 
     new_expense = {
         "id": len(expenses),
@@ -107,7 +110,7 @@ def delete_expense(expenses, args):
         write_to_file(expenses)
 
 def list_expense(expenses, args):
-    if len(expenses) > 2:
+    if len(expenses) > 1:
         category = False
         header = expenses[1].keys()
         rows = []
@@ -131,12 +134,12 @@ def list_expense(expenses, args):
         print("\nNo expenses yet to list.")
 
 def summary_expense(expenses, args):
-    if len(expenses) > 2:
+    if len(expenses) > 1:
         if any([args.yrmth, args.category]) == False:
             total = 0
             for item in expenses[1:]:
                 total = total + item["amount"]
-            print(f"\nTotal expenses: {total}")
+            print(f"\nTotal expenses: P{total}")
         else:
                 total = 0
                 if args.yrmth != None and args.category == None:
@@ -145,19 +148,19 @@ def summary_expense(expenses, args):
                         args_date = args.yrmth.split("-")
                         if args_date[0] == item_date[0] and args_date[1] == item_date[1]:
                             total = total + item["amount"]
-                    print(f"\nTotal expenses for year {args_date[0]} month {args_date[1]}: {total}")
+                    print(f"\nTotal expenses for year {args_date[0]} month {args_date[1]}: P{total}")
                 elif args.yrmth == None and args.category != None:
                     for item in expenses[1:]:
                         if args.category == item["category"]:
                             total = total + item["amount"]
-                    print(f"\nTotal expenses with category {args.category}: {total}")
+                    print(f"\nTotal expenses with category {args.category}: P{total}")
                 elif args.yrmth != None and args.category != None:
                     for item in expenses[1:]:
                         item_date = item["date"].split("-")
                         args_date = args.yrmth.split("-")
                         if args_date[0] == item_date[0] and args_date[1] == item_date[1] and args.category == item["category"]:
                             total = total + item["amount"]       
-                    print(f"\nTotal expenses for year {args_date[0]} month {args_date[1]} with category {args.category}: {total}")   
+                    print(f"\nTotal expenses for year {args_date[0]} month {args_date[1]} with category {args.category}: P{total}")   
                 else:
                     print("\nAn error has occurred.")
     else:
@@ -166,11 +169,28 @@ def summary_expense(expenses, args):
 def budget_update(expenses, args):
     if args.amount < 0:
         print("\nBudget amount cannot be negative.")
+        return
     
     previous = expenses[0]
     expenses[0] = args.amount
+    write_to_file(expenses)
     print(f"\nBudget amount has been updated from P{previous} to P{args.amount}")
 
 def write_to_file(expenses):
     with open("expenses.json", "w") as f:
         json.dump(expenses, f, indent = 2)
+
+def export_expenses(expenses):
+    if len(expenses) > 1:
+        current_file_path = Path(__file__).resolve()
+        header = expenses[1].keys()
+        rows = []
+        for item in expenses[1:]:
+            rows.append(item)
+        with open("user_expenses.csv", "w", newline='', encoding='utf-8') as f:
+            dict_writer = csv.DictWriter(f, fieldnames=header)
+            dict_writer.writeheader()
+            dict_writer.writerows(rows)
+        print(f"\nSaved expenses as a csv file at: {current_file_path.parent}\\user_expenses.csv")
+    else:
+        print("\nNo expenses recorded. There is nothing to export.")

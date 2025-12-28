@@ -23,5 +23,7 @@ elif args.command == "summary":
     summary_expense(expenses, args)
 elif args.command == "budget":
     budget_update(expenses, args)
+elif args.command == "export":
+    export_expenses(expenses)
 else:
     print("An error has occured.\n")

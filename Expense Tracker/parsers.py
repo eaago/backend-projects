@@ -46,4 +46,8 @@ def create_parsers():
     budget_parser = subparsers.add_parser("budget")
     budget_parser.add_argument("--amount", type=int, required=True)
 
+    # Export
+
+    export_parser = subparsers.add_parser("export")
+
     return parser

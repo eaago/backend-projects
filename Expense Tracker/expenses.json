@@ -34,5 +34,19 @@
     "amount": 2000,
     "category": "NMIXX stuff",
     "date": "2026-01-11"
+  },
+  {
+    "id": 6,
+    "description": "Blue Valentine Vinyl",
+    "amount": 3000,
+    "category": "NMIXX stuff",
+    "date": "2025-12-28"
+  },
+  {
+    "id": 7,
+    "description": "Cute cat accessories",
+    "amount": 250,
+    "category": "Pet items",
+    "date": "2025-12-28"
   }
 ]
