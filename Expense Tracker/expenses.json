@@ -1,0 +1,24 @@
+[
+  5000,
+  {
+    "id": 1,
+    "description": "Cat toys",
+    "amount": 500,
+    "category": "Pet items",
+    "date": "2025-12-31"
+  },
+  {
+    "id": 2,
+    "description": "Blue Valentine Set",
+    "amount": 2000,
+    "category": "General",
+    "date": "2025-12-28"
+  },
+  {
+    "id": 3,
+    "description": "Bunny food",
+    "amount": 400,
+    "category": "Pet items",
+    "date": "2026-01-01"
+  }
+]

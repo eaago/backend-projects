@@ -13,16 +13,9 @@ if len(expenses) == 0:
     expenses.append(5000)       # Default budget if user did not set amount yet
 
 if args.command == "add":
-    new_expense = {
-        "id": len(expenses) + 1,
-        "description": args.description,
-        "amount": args.amount,
-        "category": args.category,
-        "date": args.date
-    }
-    print(f"Added {args.description} with amount {args.amount} at {args.date}")
+    add_expense(expenses, args)
 elif args.command == "update":
-    pass
+    update_expense(expenses, args)
 elif args.command == "delete":
     pass
 elif args.command == "list":
