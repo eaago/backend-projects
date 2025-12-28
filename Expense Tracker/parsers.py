@@ -33,6 +33,7 @@ def create_parsers():
     # List
 
     list_parser = subparsers.add_parser("list")
+    list_parser.add_argument("--category")
 
     # Summary
 

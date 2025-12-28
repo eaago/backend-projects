@@ -1,10 +1,9 @@
-import json
 from parsers import *
 from functions import *
 
-parser = create_parsers()
-
 # Main
+
+parser = create_parsers()
 
 args = parser.parse_args()
 expenses = retrieve_expenses()
@@ -19,9 +18,9 @@ elif args.command == "update":
 elif args.command == "delete":
     delete_expense(expenses, args)
 elif args.command == "list":
-    pass
+    list_expense(expenses, args)
 elif args.command == "summary":
-    pass
+    summary_expense(expenses, args)
 elif args.command == "budget":
     # print(f"You have updated your monthly budget from {budget} to {args.amount}")
     pass

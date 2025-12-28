@@ -1,6 +1,7 @@
 import json
 import argparse
 import datetime
+import tabulate
 from parsers import *
 
 def valid_date(date_str):
@@ -80,6 +81,30 @@ def delete_expense(expenses, args):
         print(f"\nDeleted expense id {args.id}")
         expenses = delete_reorder(expenses)
         write_to_file(expenses)
+
+def list_expense(expenses, args):
+    category = False
+    header = expenses[1].keys()
+    rows = []
+    if args.category != None:
+        category = True
+        for item in expenses[1:]:
+            if args.category == item["category"]:
+                rows.append(item.values())
+    else:
+        for item in expenses[1:]:
+            rows.append(item.values())
+
+    if len(rows) == 0 and category == True:
+        print("\nNo expenses match the category. Note that this is case sensitive.")
+    elif len(rows) == 0 and category == False:
+        print("\nThere are no expenses recorded yet.")
+    else:
+        print("\n")
+        print(tabulate.tabulate(rows, header, tablefmt="grid"))
+
+def summary_expense(expenses, args):
+    pass
 
 def write_to_file(expenses):
     with open("expenses.json", "w") as f:
